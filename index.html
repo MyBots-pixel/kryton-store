@@ -1,944 +1,640 @@
 <!DOCTYPE html>
-
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-```
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Kryton Store - Gaming, Discord and creator products.">
-<meta name="theme-color" content="#7c5cff">
-
-<title>Kryton Store | Gaming & Creator Store</title>
+<title>Kryton Store</title>
 
 <style>
-    * {
-        margin: 0;
-        padding: 0;
-        box-sizing: border-box;
-    }
-
-    html {
-        scroll-behavior: smooth;
-    }
-
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        background: #080a0f;
-        color: #ffffff;
-        overflow-x: hidden;
-    }
-
-    body,
-    button,
-    input,
-    textarea,
-    select {
-        font-family: Arial, Helvetica, sans-serif;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
-
-    ::selection {
-        background: #7c5cff;
-        color: white;
-    }
-
-    ::-webkit-scrollbar {
-        width: 9px;
-    }
-
-    ::-webkit-scrollbar-track {
-        background: #080a0f;
-    }
-
-    ::-webkit-scrollbar-thumb {
-        background: #292d39;
-        border-radius: 20px;
-    }
-
-    ::-webkit-scrollbar-thumb:hover {
-        background: #7c5cff;
-    }
-
-    /* =========================
-       ANNOUNCEMENT
-    ========================= */
-
-    .announcement {
-        background: linear-gradient(
-            90deg,
-            #5638d0,
-            #7c5cff,
-            #5638d0
-        );
-        background-size: 200% 100%;
-        animation: gradientMove 8s ease infinite;
-        text-align: center;
-        padding: 9px 20px;
-        font-size: 13px;
-        font-weight: 700;
-    }
-
-    @keyframes gradientMove {
-        0% {
-            background-position: 0% 50%;
-        }
-
-        50% {
-            background-position: 100% 50%;
-        }
-
-        100% {
-            background-position: 0% 50%;
-        }
-    }
-
-    /* =========================
-       NAVIGATION
-    ========================= */
-
-    nav {
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        height: 72px;
-        display: flex;
-        align-items: center;
-        justify-content: space-between;
-        padding: 0 6%;
-        background: rgba(9, 11, 16, 0.88);
-        backdrop-filter: blur(18px);
-        -webkit-backdrop-filter: blur(18px);
-        border-bottom: 1px solid rgba(255,255,255,0.07);
-    }
-
-    .logo {
-        font-size: 24px;
-        font-weight: 900;
-        letter-spacing: -0.7px;
-    }
-
-    .logo span {
-        color: #8a70ff;
-    }
-
-    .nav-links {
-        display: flex;
-        align-items: center;
-        gap: 27px;
-        list-style: none;
-    }
-
-    .nav-links a {
-        color: #aeb3c0;
-        font-size: 14px;
-        font-weight: 600;
-        transition: color 0.25s ease;
-    }
-
-    .nav-links a:hover {
-        color: white;
-    }
-
-    .nav-button {
-        background: #7c5cff;
-        color: white !important;
-        padding: 11px 18px;
-        border-radius: 9px;
-        transition:
-            transform 0.25s ease,
-            background 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .nav-button:hover {
-        transform: translateY(-2px);
-        background: #6948ff;
-        box-shadow: 0 10px 28px rgba(124,92,255,0.25);
-    }
-
-    /* =========================
-       HERO
-    ========================= */
-
-    .hero {
-        position: relative;
-        min-height: 625px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        text-align: center;
-        padding: 100px 20px;
-        overflow: hidden;
-
-        background:
-            radial-gradient(
-                circle at 50% 35%,
-                rgba(124,92,255,0.24),
-                transparent 36%
-            ),
-            radial-gradient(
-                circle at 10% 90%,
-                rgba(80,50,190,0.16),
-                transparent 30%
-            ),
-            #080a0f;
-    }
-
-    .hero::before {
-        content: "";
-        position: absolute;
-        width: 470px;
-        height: 470px;
-        border: 1px solid rgba(124,92,255,0.13);
-        border-radius: 50%;
-        animation: floatCircle 8s ease-in-out infinite;
-    }
-
-    .hero::after {
-        content: "";
-        position: absolute;
-        width: 280px;
-        height: 280px;
-        border: 1px solid rgba(124,92,255,0.08);
-        border-radius: 50%;
-        animation: floatCircle 10s ease-in-out infinite reverse;
-    }
-
-    @keyframes floatCircle {
-        0%, 100% {
-            transform: scale(1);
-            opacity: 0.65;
-        }
-
-        50% {
-            transform: scale(1.08);
-            opacity: 1;
-        }
-    }
-
-    .hero-content {
-        position: relative;
-        z-index: 2;
-        max-width: 850px;
-        animation: heroIn 0.9s ease both;
-    }
-
-    @keyframes heroIn {
-        from {
-            opacity: 0;
-            transform: translateY(25px);
-        }
-
-        to {
-            opacity: 1;
-            transform: translateY(0);
-        }
-    }
-
-    .hero-badge {
-        display: inline-block;
-        padding: 8px 14px;
-        border: 1px solid rgba(124,92,255,0.35);
-        background: rgba(124,92,255,0.08);
-        color: #b6a7ff;
-        border-radius: 999px;
-        font-size: 13px;
-        font-weight: 800;
-        margin-bottom: 24px;
-    }
-
-    .hero h1 {
-        font-size: clamp(48px, 8vw, 88px);
-        line-height: 0.98;
-        font-weight: 950;
-        letter-spacing: -4px;
-        margin-bottom: 25px;
-    }
-
-    .hero h1 span {
-        color: #7c5cff;
-    }
-
-    .hero p {
-        max-width: 690px;
-        margin: auto;
-        color: #9da3b1;
-        line-height: 1.8;
-        font-size: 18px;
-    }
-
-    .hero-buttons {
-        margin-top: 35px;
-        display: flex;
-        justify-content: center;
-        gap: 14px;
-        flex-wrap: wrap;
-    }
-
-    .primary-button,
-    .secondary-button {
-        display: inline-block;
-        padding: 14px 23px;
-        border-radius: 10px;
-        font-weight: 800;
-        transition:
-            transform 0.25s ease,
-            background 0.25s ease,
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .primary-button {
-        background: #7c5cff;
-    }
-
-    .primary-button:hover {
-        transform: translateY(-3px);
-        background: #6948ff;
-        box-shadow: 0 12px 30px rgba(124,92,255,0.25);
-    }
-
-    .secondary-button {
-        border: 1px solid #2b3040;
-        background: #12151c;
-        color: #d4d7df;
-    }
-
-    .secondary-button:hover {
-        transform: translateY(-3px);
-        border-color: #7c5cff;
-        background: #171a24;
-    }
-
-    /* =========================
-       GENERAL
-    ========================= */
-
-    section {
-        scroll-margin-top: 90px;
-    }
-
-    .section {
-        padding: 90px 6%;
-    }
-
-    .section-heading {
-        text-align: center;
-        max-width: 720px;
-        margin: 0 auto 50px;
-    }
-
-    .section-heading h2 {
-        font-size: 40px;
-        margin-bottom: 13px;
-    }
-
-    .section-heading p {
-        color: #858b99;
-        line-height: 1.7;
-    }
-
-    /* =========================
-       FEATURES
-    ========================= */
-
-    .features {
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 20px;
-        max-width: 1100px;
-        margin: -40px auto 0;
-        padding: 0 20px;
-        position: relative;
-        z-index: 5;
-    }
-
-    .feature {
-        background: #11141b;
-        border: 1px solid #222733;
-        border-radius: 15px;
-        padding: 27px;
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease,
-            background 0.3s ease;
-    }
-
-    .feature:hover {
-        transform: translateY(-6px);
-        border-color: #413477;
-        background: #141721;
-    }
-
-    .feature-icon {
-        font-size: 30px;
-        margin-bottom: 15px;
-    }
-
-    .feature h3 {
-        margin-bottom: 8px;
-    }
-
-    .feature p {
-        color: #858b99;
-        line-height: 1.6;
-        font-size: 14px;
-    }
-
-    /* =========================
-       SHOP
-    ========================= */
-
-    .shop-section {
-        background: #0c0f15;
-    }
-
-    .shop-controls {
-        max-width: 1100px;
-        margin: 0 auto 30px;
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 15px;
-        flex-wrap: wrap;
-    }
-
-    .search-box {
-        flex: 1;
-        min-width: 230px;
-    }
-
-    .search-box input {
-        width: 100%;
-        padding: 14px 17px;
-        background: #13161e;
-        border: 1px solid #292e3a;
-        color: white;
-        border-radius: 10px;
-        outline: none;
-        transition:
-            border-color 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .search-box input:focus {
-        border-color: #7c5cff;
-        box-shadow: 0 0 0 3px rgba(124,92,255,0.08);
-    }
-
-    .search-box input::placeholder {
-        color: #606674;
-    }
-
-    .categories {
-        display: flex;
-        gap: 8px;
-        flex-wrap: wrap;
-    }
-
-    .category {
-        border: 1px solid #292e3a;
-        background: #13161e;
-        color: #aab0bd;
-        padding: 10px 14px;
-        border-radius: 8px;
-        cursor: pointer;
-        font-weight: 700;
-        transition: 0.25s ease;
-    }
-
-    .category:hover,
-    .category.active {
-        background: #7c5cff;
-        border-color: #7c5cff;
-        color: white;
-    }
-
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Arial, Helvetica, sans-serif;
+    background: #080a0f;
+    color: #ffffff;
+    line-height: 1.6;
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+button,
+input,
+textarea,
+select {
+    font: inherit;
+}
+
+/* NAVBAR */
+
+.topbar {
+    background: #11141b;
+    border-bottom: 1px solid #252a36;
+    padding: 12px 6%;
+    text-align: center;
+    font-size: 13px;
+    color: #c6c9d2;
+}
+
+.navbar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 18px 6%;
+    background: rgba(8,10,15,0.96);
+    border-bottom: 1px solid #202530;
+}
+
+.logo {
+    font-size: 24px;
+    font-weight: 900;
+}
+
+.logo span {
+    color: #7c5cff;
+}
+
+.nav-links {
+    display: flex;
+    gap: 25px;
+    align-items: center;
+    list-style: none;
+}
+
+.nav-links a {
+    color: #aeb3c0;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.nav-links a:hover {
+    color: #ffffff;
+}
+
+.nav-shop {
+    background: #7c5cff;
+    color: white !important;
+    padding: 10px 16px;
+    border-radius: 8px;
+}
+
+/* HERO */
+
+.hero {
+    min-height: 570px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 80px 20px;
+    background:
+        radial-gradient(circle at 50% 30%, rgba(124,92,255,.25), transparent 40%),
+        #080a0f;
+}
+
+.hero-content {
+    max-width: 850px;
+}
+
+.badge {
+    display: inline-block;
+    padding: 8px 14px;
+    margin-bottom: 25px;
+    border: 1px solid #493b86;
+    background: rgba(124,92,255,.1);
+    color: #b9adff;
+    border-radius: 30px;
+    font-size: 13px;
+    font-weight: 800;
+}
+
+.hero h1 {
+    font-size: clamp(48px, 8vw, 86px);
+    line-height: 1;
+    letter-spacing: -4px;
+    margin-bottom: 25px;
+}
+
+.hero h1 span {
+    color: #7c5cff;
+}
+
+.hero p {
+    max-width: 700px;
+    margin: auto;
+    color: #9298a6;
+    font-size: 18px;
+}
+
+.hero-buttons {
+    margin-top: 35px;
+    display: flex;
+    justify-content: center;
+    gap: 12px;
+    flex-wrap: wrap;
+}
+
+.button {
+    display: inline-block;
+    border-radius: 9px;
+    padding: 14px 22px;
+    font-weight: 800;
+    transition: .25s;
+}
+
+.primary {
+    background: #7c5cff;
+}
+
+.primary:hover {
+    background: #6948ff;
+    transform: translateY(-2px);
+}
+
+.secondary {
+    border: 1px solid #303541;
+    background: #13161e;
+}
+
+.secondary:hover {
+    border-color: #7c5cff;
+    transform: translateY(-2px);
+}
+
+/* GENERAL */
+
+.section {
+    padding: 85px 6%;
+}
+
+.dark {
+    background: #0c0f15;
+}
+
+.section-title {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 45px;
+}
+
+.section-title h2 {
+    font-size: 40px;
+    margin-bottom: 12px;
+}
+
+.section-title p {
+    color: #858b99;
+}
+
+/* FEATURES */
+
+.features {
+    max-width: 1100px;
+    margin: -40px auto 0;
+    padding: 0 20px;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 20px;
+    position: relative;
+}
+
+.feature {
+    background: #11141b;
+    border: 1px solid #252a36;
+    padding: 28px;
+    border-radius: 15px;
+    transition: .3s;
+}
+
+.feature:hover {
+    transform: translateY(-6px);
+    border-color: #55459c;
+}
+
+.feature-icon {
+    font-size: 32px;
+    margin-bottom: 12px;
+}
+
+.feature h3 {
+    margin-bottom: 8px;
+}
+
+.feature p {
+    color: #858b99;
+    font-size: 14px;
+}
+
+/* SHOP */
+
+.shop-controls {
+    max-width: 1100px;
+    margin: auto auto 30px;
+    display: flex;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.search {
+    flex: 1;
+    min-width: 240px;
+    padding: 14px;
+    border: 1px solid #292e3a;
+    border-radius: 9px;
+    background: #13161e;
+    color: white;
+    outline: none;
+}
+
+.search:focus {
+    border-color: #7c5cff;
+}
+
+.categories {
+    display: flex;
+    gap: 8px;
+    flex-wrap: wrap;
+}
+
+.category {
+    padding: 10px 14px;
+    border: 1px solid #292e3a;
+    border-radius: 8px;
+    background: #13161e;
+    color: #aeb3c0;
+    cursor: pointer;
+    font-weight: 700;
+}
+
+.category.active,
+.category:hover {
+    background: #7c5cff;
+    color: white;
+    border-color: #7c5cff;
+}
+
+.products {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    gap: 22px;
+}
+
+.product {
+    background: #12151c;
+    border: 1px solid #252a36;
+    border-radius: 15px;
+    overflow: hidden;
+    transition: .3s;
+}
+
+.product:hover {
+    transform: translateY(-7px);
+    border-color: #6250b9;
+}
+
+.product-image {
+    height: 190px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 65px;
+    background:
+        radial-gradient(circle, rgba(124,92,255,.25), transparent 60%),
+        #191d27;
+}
+
+.product-content {
+    padding: 22px;
+}
+
+.product-tag {
+    display: inline-block;
+    padding: 5px 9px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background: rgba(124,92,255,.12);
+    color: #aa99ff;
+    font-size: 11px;
+    font-weight: 800;
+}
+
+.product h3 {
+    margin-bottom: 8px;
+    font-size: 20px;
+}
+
+.product p {
+    min-height: 70px;
+    color: #858b99;
+    font-size: 14px;
+}
+
+.product-bottom {
+    margin-top: 18px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.price {
+    font-size: 21px;
+    font-weight: 900;
+}
+
+.buy {
+    border: 0;
+    background: #7c5cff;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.buy:hover {
+    background: #6948ff;
+}
+
+.no-results {
+    display: none;
+    grid-column: 1/-1;
+    text-align: center;
+    padding: 40px;
+    color: #777d8a;
+}
+
+/* SUPPORT */
+
+.support-box {
+    max-width: 850px;
+    margin: auto;
+    background: #11141b;
+    border: 1px solid #252a36;
+    border-radius: 16px;
+    padding: 32px;
+}
+
+.form-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 7px;
+    font-size: 14px;
+    font-weight: 700;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+    width: 100%;
+    padding: 13px 14px;
+    background: #0b0e14;
+    color: white;
+    border: 1px solid #292e3a;
+    border-radius: 8px;
+    outline: none;
+}
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+    border-color: #7c5cff;
+}
+
+.form-group textarea {
+    min-height: 150px;
+    resize: vertical;
+}
+
+.notice {
+    margin-bottom: 20px;
+    padding: 14px;
+    border-radius: 8px;
+    background: rgba(124,92,255,.08);
+    border: 1px solid rgba(124,92,255,.18);
+    color: #858b99;
+    font-size: 13px;
+}
+
+.submit {
+    width: 100%;
+    border: 0;
+    border-radius: 8px;
+    background: #7c5cff;
+    color: white;
+    padding: 15px;
+    cursor: pointer;
+    font-weight: 800;
+}
+
+.submit:hover {
+    background: #6948ff;
+}
+
+/* FAQ */
+
+.faq {
+    max-width: 850px;
+    margin: auto;
+}
+
+details {
+    margin-bottom: 12px;
+    padding: 20px;
+    background: #11141b;
+    border: 1px solid #252a36;
+    border-radius: 10px;
+}
+
+summary {
+    cursor: pointer;
+    font-weight: 800;
+}
+
+details p {
+    margin-top: 12px;
+    color: #858b99;
+}
+
+/* LEGAL */
+
+.legal-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    gap: 20px;
+}
+
+.legal-card {
+    background: #11141b;
+    border: 1px solid #252a36;
+    border-radius: 14px;
+    padding: 28px;
+}
+
+.legal-card h3 {
+    margin-bottom: 12px;
+}
+
+.legal-card p {
+    color: #858b99;
+    font-size: 14px;
+}
+
+/* FOOTER */
+
+footer {
+    background: #07090d;
+    border-top: 1px solid #202530;
+    padding: 50px 6% 25px;
+}
+
+.footer-grid {
+    max-width: 1100px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr 1fr 1fr;
+    gap: 30px;
+}
+
+.footer-grid h4 {
+    margin-bottom: 12px;
+}
+
+.footer-grid p,
+.footer-grid a {
+    color: #777d8a;
+    font-size: 14px;
+}
+
+.footer-grid a {
+    display: block;
+    margin-bottom: 8px;
+}
+
+.footer-grid a:hover {
+    color: white;
+}
+
+.footer-bottom {
+    max-width: 1100px;
+    margin: 35px auto 0;
+    padding-top: 20px;
+    border-top: 1px solid #202530;
+    color: #626875;
+    font-size: 12px;
+}
+
+/* ANIMATIONS */
+
+.fade {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity .7s ease, transform .7s ease;
+}
+
+.fade.show {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* MOBILE */
+
+@media (max-width: 850px) {
+
+    .features,
     .products {
-        max-width: 1100px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(3, 1fr);
-        gap: 22px;
-    }
-
-    .product {
-        position: relative;
-        background: #12151c;
-        border: 1px solid #252a36;
-        border-radius: 16px;
-        overflow: hidden;
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease,
-            box-shadow 0.3s ease;
-    }
-
-    .product:hover {
-        transform: translateY(-7px);
-        border-color: #6750d5;
-        box-shadow: 0 18px 45px rgba(0,0,0,0.25);
-    }
-
-    .product-image {
-        height: 190px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 65px;
-
-        background:
-            radial-gradient(
-                circle at center,
-                rgba(124,92,255,0.25),
-                transparent 60%
-            ),
-            #191d27;
-    }
-
-    .product-content {
-        padding: 23px;
-    }
-
-    .product-badge {
-        display: inline-block;
-        background: rgba(124,92,255,0.12);
-        color: #aa99ff;
-        padding: 5px 9px;
-        border-radius: 6px;
-        font-size: 11px;
-        font-weight: 800;
-        margin-bottom: 11px;
-    }
-
-    .product h3 {
-        font-size: 20px;
-        margin-bottom: 9px;
-    }
-
-    .product-description {
-        color: #858b99;
-        font-size: 14px;
-        line-height: 1.6;
-        min-height: 66px;
-    }
-
-    .product-bottom {
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        gap: 10px;
-        margin-top: 20px;
-    }
-
-    .price {
-        font-size: 22px;
-        font-weight: 900;
-    }
-
-    .buy-button {
-        background: #7c5cff;
-        padding: 10px 15px;
-        border-radius: 8px;
-        font-weight: 800;
-        transition: 0.25s ease;
-    }
-
-    .buy-button:hover {
-        background: #6948ff;
-        transform: translateY(-2px);
-    }
-
-    .no-products {
-        display: none;
-        text-align: center;
-        color: #777d8a;
-        padding: 40px;
-        grid-column: 1 / -1;
-    }
-
-    /* =========================
-       SUPPORT
-    ========================= */
-
-    .support {
-        background:
-            radial-gradient(
-                circle at 50% 20%,
-                rgba(124,92,255,0.13),
-                transparent 45%
-            ),
-            #080a0f;
-    }
-
-    .support-form-container {
-        max-width: 850px;
-        margin: auto;
-        background: #11141b;
-        border: 1px solid #252a36;
-        border-radius: 18px;
-        padding: 35px;
-        box-shadow: 0 20px 60px rgba(0,0,0,0.18);
-    }
-
-    .form-row {
-        display: grid;
-        grid-template-columns: 1fr 1fr;
-        gap: 18px;
-    }
-
-    .form-group {
-        margin-bottom: 20px;
-    }
-
-    .form-group label {
-        display: block;
-        margin-bottom: 8px;
-        color: #dfe2e8;
-        font-size: 14px;
-        font-weight: 700;
-    }
-
-    .form-group input,
-    .form-group select,
-    .form-group textarea {
-        width: 100%;
-        background: #0b0e14;
-        border: 1px solid #292e3a;
-        border-radius: 9px;
-        padding: 13px 15px;
-        color: white;
-        font-size: 14px;
-        outline: none;
-        transition:
-            border-color 0.25s ease,
-            box-shadow 0.25s ease,
-            background 0.25s ease;
-    }
-
-    .form-group textarea {
-        resize: vertical;
-        min-height: 150px;
-    }
-
-    .form-group input::placeholder,
-    .form-group textarea::placeholder {
-        color: #5f6572;
-    }
-
-    .form-group input:focus,
-    .form-group select:focus,
-    .form-group textarea:focus {
-        border-color: #7c5cff;
-        background: #0e1118;
-        box-shadow: 0 0 0 3px rgba(124,92,255,0.1);
-    }
-
-    .support-note {
-        display: flex;
-        gap: 12px;
-        align-items: flex-start;
-        background: rgba(124,92,255,0.07);
-        border: 1px solid rgba(124,92,255,0.15);
-        border-radius: 10px;
-        padding: 14px;
-        margin-bottom: 20px;
-    }
-
-    .support-note span {
-        font-size: 18px;
-    }
-
-    .support-note p {
-        color: #858b99;
-        font-size: 12px;
-        line-height: 1.6;
-    }
-
-    .support-submit {
-        width: 100%;
-        border: none;
-        background: #7c5cff;
-        color: white;
-        padding: 15px;
-        border-radius: 10px;
-        font-size: 15px;
-        font-weight: 800;
-        cursor: pointer;
-        transition:
-            transform 0.25s ease,
-            background 0.25s ease,
-            box-shadow 0.25s ease;
-    }
-
-    .support-submit:hover {
-        transform: translateY(-2px);
-        background: #6948ff;
-        box-shadow: 0 10px 30px rgba(124,92,255,0.22);
-    }
-
-    /* =========================
-       FAQ
-    ========================= */
-
-    .faq {
-        max-width: 850px;
-        margin: auto;
-    }
-
-    details {
-        background: #11141b;
-        border: 1px solid #252a36;
-        border-radius: 11px;
-        margin-bottom: 12px;
-        padding: 20px;
-        transition:
-            border-color 0.25s ease,
-            background 0.25s ease;
-    }
-
-    details:hover {
-        border-color: #413477;
-    }
-
-    details[open] {
-        background: #131720;
-        border-color: #4a3b91;
-    }
-
-    summary {
-        cursor: pointer;
-        font-weight: 800;
-    }
-
-    details p {
-        color: #858b99;
-        line-height: 1.7;
-        margin-top: 15px;
-        font-size: 14px;
-    }
-
-    /* =========================
-       LEGAL
-    ========================= */
-
-    .legal-section {
-        background: #0c0f15;
-    }
-
-    .legal-grid {
-        max-width: 1100px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: repeat(2, 1fr);
-        gap: 20px;
-    }
-
-    .legal-card {
-        background: #11141b;
-        border: 1px solid #252a36;
-        border-radius: 15px;
-        padding: 30px;
-        transition:
-            transform 0.3s ease,
-            border-color 0.3s ease;
-    }
-
-    .legal-card:hover {
-        transform: translateY(-4px);
-        border-color: #413477;
-    }
-
-    .legal-card h3 {
-        margin-bottom: 15px;
-    }
-
-    .legal-card p,
-    .legal-card li {
-        color: #858b99;
-        line-height: 1.7;
-        font-size: 14px;
-    }
-
-    .legal-card ul {
-        padding-left: 20px;
-    }
-
-    /* =========================
-       FOOTER
-    ========================= */
-
-    footer {
-        padding: 55px 6% 30px;
-        background: #07090d;
-        border-top: 1px solid #202530;
+        grid-template-columns: repeat(2,1fr);
     }
 
     .footer-grid {
-        max-width: 1100px;
-        margin: auto;
-        display: grid;
-        grid-template-columns: 2fr 1fr 1fr 1fr;
-        gap: 40px;
+        grid-template-columns: repeat(2,1fr);
+    }
+}
+
+@media (max-width: 600px) {
+
+    .navbar {
+        padding: 15px 5%;
     }
 
-    .footer-brand p {
-        color: #777d8a;
-        line-height: 1.7;
-        margin-top: 12px;
-        max-width: 360px;
-        font-size: 14px;
+    .nav-links {
+        gap: 8px;
     }
 
-    .footer-column h4 {
-        margin-bottom: 14px;
+    .nav-links li:not(:last-child) {
+        display: none;
     }
 
-    .footer-column a {
-        display: block;
-        color: #777d8a;
-        margin-bottom: 9px;
-        font-size: 14px;
-        transition: color 0.2s ease;
+    .hero h1 {
+        font-size: 50px;
+        letter-spacing: -2px;
     }
 
-    .footer-column a:hover {
-        color: white;
+    .features,
+    .products,
+    .legal-grid {
+        grid-template-columns: 1fr;
     }
 
-    .footer-bottom {
-        max-width: 1100px;
-        margin: 40px auto 0;
-        padding-top: 25px;
-        border-top: 1px solid #202530;
-        display: flex;
-        justify-content: space-between;
-        gap: 20px;
-        color: #626875;
-        font-size: 12px;
-        flex-wrap: wrap;
+    .features {
+        margin: 20px;
+        padding: 0;
     }
 
-    /* =========================
-       REVEAL ANIMATION
-    ========================= */
-
-    .reveal {
-        opacity: 0;
-        transform: translateY(25px);
-        transition:
-            opacity 0.7s ease,
-            transform 0.7s ease;
+    .section {
+        padding: 65px 5%;
     }
 
-    .reveal.visible {
-        opacity: 1;
-        transform: translateY(0);
+    .form-row {
+        grid-template-columns: 1fr;
+        gap: 0;
     }
 
-    /* =========================
-       MOBILE
-    ========================= */
-
-    @media (max-width: 900px) {
-
-        .features,
-        .products {
-            grid-template-columns: repeat(2, 1fr);
-        }
-
-        .footer-grid {
-            grid-template-columns: repeat(2, 1fr);
-        }
+    .support-box {
+        padding: 22px;
     }
 
-    @media (max-width: 650px) {
-
-        nav {
-            height: 65px;
-            padding: 0 5%;
-        }
-
-        .nav-links {
-            gap: 10px;
-        }
-
-        .nav-links li:not(:last-child) {
-            display: none;
-        }
-
-        .hero {
-            min-height: 560px;
-            padding: 80px 20px;
-        }
-
-        .hero h1 {
-            letter-spacing: -2px;
-        }
-
-        .features,
-        .products,
-        .legal-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .features {
-            margin: 20px 5% 0;
-            padding: 0;
-        }
-
-        .section {
-            padding: 70px 5%;
-        }
-
-        .section-heading h2 {
-            font-size: 32px;
-        }
-
-        .form-row {
-            grid-template-columns: 1fr;
-            gap: 0;
-        }
-
-        .support-form-container {
-            padding: 22px;
-        }
-
-        .footer-grid {
-            grid-template-columns: 1fr;
-        }
-
-        .footer-bottom {
-            flex-direction: column;
-        }
+    .footer-grid {
+        grid-template-columns: 1fr;
     }
+}
 </style>
-```
-
 </head>
 
 <body>
 
-```
-<!-- =========================
-     ANNOUNCEMENT
-========================== -->
-
-<div class="announcement">
-    ✨ Welcome to Kryton Store — New products and services coming soon!
+<div class="topbar">
+    ✨ Welcome to Kryton Store — Gaming, Discord & Creator Products
 </div>
 
-
-<!-- =========================
-     NAVIGATION
-========================== -->
-
-<nav>
+<nav class="navbar">
 
     <a href="#home" class="logo">
         Kryton<span>Store</span>
@@ -946,29 +642,15 @@
 
     <ul class="nav-links">
 
-        <li>
-            <a href="#home">Home</a>
-        </li>
+        <li><a href="#home">Home</a></li>
+        <li><a href="#shop">Shop</a></li>
+        <li><a href="#support">Support</a></li>
+        <li><a href="#faq">FAQ</a></li>
+        <li><a href="#terms">Terms</a></li>
 
         <li>
-            <a href="#shop">Shop</a>
-        </li>
-
-        <li>
-            <a href="#support">Support</a>
-        </li>
-
-        <li>
-            <a href="#faq">FAQ</a>
-        </li>
-
-        <li>
-            <a href="#terms">Terms</a>
-        </li>
-
-        <li>
-            <a href="#shop" class="nav-button">
-                🛒 Shop Now
+            <a href="#shop" class="nav-shop">
+                Shop Now
             </a>
         </li>
 
@@ -976,16 +658,11 @@
 
 </nav>
 
-
-<!-- =========================
-     HERO
-========================== -->
-
 <section class="hero" id="home">
 
     <div class="hero-content">
 
-        <div class="hero-badge">
+        <div class="badge">
             🎮 GAMING • DISCORD • CREATORS
         </div>
 
@@ -995,18 +672,17 @@
         </h1>
 
         <p>
-            A growing store for gaming communities, Discord owners
-            and creators. Discover digital products, services and
-            resources designed to make your projects easier.
+            Discover digital products, gaming resources,
+            Discord services and creator tools all in one place.
         </p>
 
         <div class="hero-buttons">
 
-            <a href="#shop" class="primary-button">
-                Browse the Store
+            <a href="#shop" class="button primary">
+                Browse Store
             </a>
 
-            <a href="#support" class="secondary-button">
+            <a href="#support" class="button secondary">
                 Get Support
             </a>
 
@@ -1016,112 +692,78 @@
 
 </section>
 
-
-<!-- =========================
-     FEATURES
-========================== -->
-
 <div class="features">
 
-    <div class="feature reveal">
-
+    <div class="feature fade">
         <div class="feature-icon">⚡</div>
-
         <h3>Fast Delivery</h3>
-
         <p>
             Digital products and services can be delivered
             quickly after your order.
         </p>
-
     </div>
 
-
-    <div class="feature reveal">
-
+    <div class="feature fade">
         <div class="feature-icon">🔒</div>
-
-        <h3>Secure Payments</h3>
-
+        <h3>Secure Checkout</h3>
         <p>
-            Payments will be handled through a trusted payment
-            provider rather than stored directly on this website.
+            Payments can be handled through a dedicated
+            payment provider instead of storing card details here.
         </p>
-
     </div>
 
-
-    <div class="feature reveal">
-
+    <div class="feature fade">
         <div class="feature-icon">💬</div>
-
-        <h3>Friendly Support</h3>
-
+        <h3>Support</h3>
         <p>
-            Need help with an order? Use the support form and
-            provide your order details so we can investigate.
+            Have an issue? Send us your order information
+            and our support system can help.
         </p>
-
     </div>
 
 </div>
 
+<section class="section dark" id="shop">
 
-<!-- =========================
-     SHOP
-========================== -->
-
-<section class="section shop-section" id="shop">
-
-    <div class="section-heading reveal">
-
-        <h2>Featured Products</h2>
-
+    <div class="section-title fade">
+        <h2>Shop</h2>
         <p>
-            Explore the current Kryton Store collection.
-            More products can be added as the store grows.
+            Browse the available Kryton Store products.
         </p>
-
     </div>
 
+    <div class="shop-controls">
 
-    <div class="shop-controls reveal">
-
-        <div class="search-box">
-
-            <input
-                type="text"
-                id="productSearch"
-                placeholder="Search products..."
-                aria-label="Search products"
-            >
-
-        </div>
-
+        <input
+            id="search"
+            class="search"
+            type="text"
+            placeholder="Search products..."
+        >
 
         <div class="categories">
 
             <button
                 class="category active"
-                onclick="filterProducts('all', this)">
+                data-category="all">
                 All
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('discord', this)">
+                data-category="discord">
                 Discord
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('creator', this)">
+                data-category="creator">
                 Creator
             </button>
 
             <button
                 class="category"
-                onclick="filterProducts('gaming', this)">
+                data-category="gaming">
                 Gaming
             </button>
 
@@ -1129,15 +771,9 @@
 
     </div>
 
-
     <div class="products" id="products">
 
-
-        <!-- PRODUCT 1 -->
-
-        <div
-            class="product reveal"
-            data-category="discord">
+        <div class="product fade" data-category="discord">
 
             <div class="product-image">
                 🎮
@@ -1145,31 +781,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     DISCORD
                 </span>
 
-                <h3>
-                    Discord Server Setup
-                </h3>
+                <h3>Discord Server Setup</h3>
 
-                <p class="product-description">
+                <p>
                     A professionally organised Discord server
-                    structure for gaming communities and friends.
+                    structure for gaming communities.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £5.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="Discord Server Setup"
+                        data-price="£5.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1177,12 +811,7 @@
 
         </div>
 
-
-        <!-- PRODUCT 2 -->
-
-        <div
-            class="product reveal"
-            data-category="discord">
+        <div class="product fade" data-category="discord">
 
             <div class="product-image">
                 🤖
@@ -1190,31 +819,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     DISCORD
                 </span>
 
-                <h3>
-                    Discord Bot Setup
-                </h3>
+                <h3>Discord Bot Setup</h3>
 
-                <p class="product-description">
-                    A Discord bot setup service for communities
-                    that want useful automation and commands.
+                <p>
+                    Get help setting up useful Discord
+                    automation and community commands.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £10.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="Discord Bot Setup"
+                        data-price="£10.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1222,12 +849,7 @@
 
         </div>
 
-
-        <!-- PRODUCT 3 -->
-
-        <div
-            class="product reveal"
-            data-category="creator">
+        <div class="product fade" data-category="creator">
 
             <div class="product-image">
                 🎨
@@ -1235,31 +857,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     CREATOR
                 </span>
 
-                <h3>
-                    Creator Graphics Pack
-                </h3>
+                <h3>Creator Graphics Pack</h3>
 
-                <p class="product-description">
-                    A collection of graphics and resources for
-                    YouTube, gaming and online creators.
+                <p>
+                    Digital graphics and resources for
+                    gaming and online creators.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £3.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="Creator Graphics Pack"
+                        data-price="£3.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1267,12 +887,7 @@
 
         </div>
 
-
-        <!-- PRODUCT 4 -->
-
-        <div
-            class="product reveal"
-            data-category="gaming">
+        <div class="product fade" data-category="gaming">
 
             <div class="product-image">
                 🕹️
@@ -1280,31 +895,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     GAMING
                 </span>
 
-                <h3>
-                    Gaming Resource Pack
-                </h3>
+                <h3>Gaming Resource Pack</h3>
 
-                <p class="product-description">
-                    Useful digital resources for gaming communities,
-                    events and online projects.
+                <p>
+                    Useful digital resources for gaming
+                    communities and events.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £4.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="Gaming Resource Pack"
+                        data-price="£4.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1312,12 +925,7 @@
 
         </div>
 
-
-        <!-- PRODUCT 5 -->
-
-        <div
-            class="product reveal"
-            data-category="creator">
+        <div class="product fade" data-category="creator">
 
             <div class="product-image">
                 📺
@@ -1325,31 +933,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     CREATOR
                 </span>
 
-                <h3>
-                    YouTube Starter Pack
-                </h3>
+                <h3>YouTube Starter Pack</h3>
 
-                <p class="product-description">
-                    Resources for creators starting a gaming or
-                    entertainment YouTube channel.
+                <p>
+                    Resources for creators starting a
+                    gaming or entertainment channel.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £6.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="YouTube Starter Pack"
+                        data-price="£6.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1357,12 +963,7 @@
 
         </div>
 
-
-        <!-- PRODUCT 6 -->
-
-        <div
-            class="product reveal"
-            data-category="discord">
+        <div class="product fade" data-category="discord">
 
             <div class="product-image">
                 🛡️
@@ -1370,31 +971,29 @@
 
             <div class="product-content">
 
-                <span class="product-badge">
+                <span class="product-tag">
                     DISCORD
                 </span>
 
-                <h3>
-                    Community Starter Pack
-                </h3>
+                <h3>Community Starter Pack</h3>
 
-                <p class="product-description">
-                    A collection of useful resources for launching
-                    and organising a new Discord community.
+                <p>
+                    Resources for launching and organising
+                    a new Discord community.
                 </p>
 
                 <div class="product-bottom">
 
-                    <div class="price">
+                    <span class="price">
                         £7.00
-                    </div>
+                    </span>
 
-                    <a
-                        href="#"
-                        class="buy-button"
-                        onclick="paymentComingSoon(event)">
+                    <button
+                        class="buy"
+                        data-product="Community Starter Pack"
+                        data-price="£7.00">
                         Buy Now
-                    </a>
+                    </button>
 
                 </div>
 
@@ -1402,40 +1001,27 @@
 
         </div>
 
-
-        <div
-            class="no-products"
-            id="noProducts">
-
+        <div id="noResults" class="no-results">
             No products found.
-
         </div>
 
     </div>
 
 </section>
 
+<section class="section" id="support">
 
-<!-- =========================
-     SUPPORT
-========================== -->
+    <div class="section-title fade">
 
-<section class="section support" id="support">
-
-    <div class="section-heading reveal">
-
-        <h2>Need Help?</h2>
+        <h2>Support</h2>
 
         <p>
-            Send a detailed support request. Including your order
-            number and purchased product helps us investigate
-            your issue more quickly.
+            Need help with an order? Complete the form below.
         </p>
 
     </div>
 
-
-    <div class="support-form-container reveal">
+    <div class="support-box">
 
         <form id="supportForm">
 
@@ -1443,29 +1029,28 @@
 
                 <div class="form-group">
 
-                    <label for="supportName">
-                        Your Name
+                    <label for="name">
+                        Name
                     </label>
 
                     <input
+                        id="name"
                         type="text"
-                        id="supportName"
-                        placeholder="Enter your name"
+                        placeholder="Your name"
                         required
                     >
 
                 </div>
 
-
                 <div class="form-group">
 
-                    <label for="supportEmail">
-                        Your Email
+                    <label for="email">
+                        Email
                     </label>
 
                     <input
+                        id="email"
                         type="email"
-                        id="supportEmail"
                         placeholder="you@example.com"
                         required
                     >
@@ -1474,33 +1059,31 @@
 
             </div>
 
-
             <div class="form-row">
 
                 <div class="form-group">
 
-                    <label for="orderNumber">
+                    <label for="order">
                         Order Number
                     </label>
 
                     <input
+                        id="order"
                         type="text"
-                        id="orderNumber"
                         placeholder="Example: KS-12345"
                     >
 
                 </div>
 
-
                 <div class="form-group">
 
-                    <label for="productName">
+                    <label for="product">
                         Product Purchased
                     </label>
 
                     <input
+                        id="product"
                         type="text"
-                        id="productName"
                         placeholder="What did you purchase?"
                     >
 
@@ -1508,60 +1091,43 @@
 
             </div>
 
-
             <div class="form-group">
 
-                <label for="purchaseDate">
-                    Purchase Date
+                <label for="reason">
+                    Reason for contacting us
                 </label>
 
-                <input
-                    type="date"
-                    id="purchaseDate"
-                >
-
-            </div>
-
-
-            <div class="form-group">
-
-                <label for="supportReason">
-                    What do you need help with?
-                </label>
-
-                <select
-                    id="supportReason"
-                    required>
+                <select id="reason" required>
 
                     <option value="">
                         Select an option
                     </option>
 
-                    <option value="Order issue">
+                    <option>
                         Order issue
                     </option>
 
-                    <option value="Payment issue">
+                    <option>
                         Payment issue
                     </option>
 
-                    <option value="Product issue">
+                    <option>
                         Product issue
                     </option>
 
-                    <option value="Delivery issue">
+                    <option>
                         Delivery issue
                     </option>
 
-                    <option value="Refund request">
+                    <option>
                         Refund request
                     </option>
 
-                    <option value="General question">
+                    <option>
                         General question
                     </option>
 
-                    <option value="Other">
+                    <option>
                         Other
                     </option>
 
@@ -1569,42 +1135,32 @@
 
             </div>
 
-
             <div class="form-group">
 
-                <label for="supportMessage">
-                    Tell us what happened
+                <label for="message">
+                    What happened?
                 </label>
 
                 <textarea
-                    id="supportMessage"
-                    rows="7"
-                    placeholder="Please provide as much detail as possible..."
+                    id="message"
+                    placeholder="Please describe your issue in detail..."
                     required
                 ></textarea>
 
             </div>
 
+            <div class="notice">
 
-            <div class="support-note">
-
-                <span>🔒</span>
-
-                <p>
-                    Never enter passwords, full payment card numbers,
-                    CVV/security codes or other sensitive payment
-                    information into this form.
-                </p>
+                🔒 Please do not enter passwords,
+                full card numbers, CVV codes or other
+                sensitive payment information.
 
             </div>
 
-
             <button
                 type="submit"
-                class="support-submit">
-
+                class="submit">
                 Send Support Request
-
             </button>
 
         </form>
@@ -1613,746 +1169,491 @@
 
 </section>
 
+<section class="section dark" id="faq">
 
-<!-- =========================
-     FAQ
-========================== -->
-
-<section class="section" id="faq">
-
-    <div class="section-heading reveal">
+    <div class="section-title">
 
         <h2>Frequently Asked Questions</h2>
 
         <p>
-            Answers to some common questions about Kryton Store.
+            Common questions about the store.
         </p>
 
     </div>
 
-
     <div class="faq">
 
-        <details class="reveal">
-
+        <details>
             <summary>
-                How do I purchase something?
+                How do I buy a product?
             </summary>
 
             <p>
-                Choose a product and select Buy Now. Once payments
-                have been connected, you will be taken to the
-                secure checkout for that product.
+                Select Buy Now on the product you want.
+                Once a payment provider is connected,
+                the button will open the secure checkout.
             </p>
-
         </details>
 
-
-        <details class="reveal">
-
+        <details>
             <summary>
-                Are payments secure?
+                Are my payment details stored?
             </summary>
 
             <p>
-                Payments will be processed through the selected
-                payment provider. Kryton Store should not directly
-                collect or store your complete payment card details.
+                The recommended setup is to use a payment
+                provider such as Stripe or PayPal so your
+                website does not directly handle complete
+                card details.
             </p>
-
         </details>
 
-
-        <details class="reveal">
-
+        <details>
             <summary>
-                What happens after I pay?
+                Where is my order number?
             </summary>
 
             <p>
-                Your order will be processed according to the
-                product purchased. Digital products can be delivered
-                electronically, while setup services may require
-                additional information from you.
-            </p>
-
-        </details>
-
-
-        <details class="reveal">
-
-            <summary>
-                Where can I find my order number?
-            </summary>
-
-            <p>
-                Your order number should be provided as part of
-                your purchase confirmation once the payment system
+                Your order number will normally be provided
+                in your purchase confirmation once checkout
                 is connected.
             </p>
-
         </details>
 
+        <details>
+            <summary>
+                How do I request support?
+            </summary>
 
-        <details class="reveal">
+            <p>
+                Complete the support form and provide your
+                name, email, order information and a detailed
+                description of the issue.
+            </p>
+        </details>
 
+        <details>
             <summary>
                 Can I request a refund?
             </summary>
 
             <p>
-                Refund eligibility depends on the product,
-                circumstances of the purchase and applicable
-                consumer law. See the Terms of Service for the
-                store's current refund policy.
+                Refunds are handled according to the applicable
+                store refund policy and applicable consumer law.
             </p>
-
-        </details>
-
-
-        <details class="reveal">
-
-            <summary>
-                How do I contact support?
-            </summary>
-
-            <p>
-                Complete the support form above. Include your name,
-                email, order number, product and a detailed
-                description of the issue.
-            </p>
-
         </details>
 
     </div>
 
 </section>
 
+<section class="section" id="terms">
 
-<!-- =========================
-     TERMS
-========================== -->
-
-<section class="section legal-section" id="terms">
-
-    <div class="section-heading reveal">
+    <div class="section-title">
 
         <h2>Terms of Service</h2>
 
         <p>
-            Please read these terms before using the store or
-            purchasing a product.
+            Please read these terms before using the store.
         </p>
 
     </div>
 
-
     <div class="legal-grid">
 
-        <div class="legal-card reveal">
-
-            <h3>
-                1. Using Kryton Store
-            </h3>
-
+        <div class="legal-card">
+            <h3>1. Website Use</h3>
             <p>
-                By using Kryton Store, you agree to use the website
-                lawfully and not attempt to damage, disrupt or
-                interfere with the operation or security of the
-                website.
+                You agree to use the website lawfully and
+                not attempt to damage, disrupt or interfere
+                with its operation.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                2. Products and Services
-            </h3>
-
+        <div class="legal-card">
+            <h3>2. Products</h3>
             <p>
-                Product descriptions are provided to explain what
-                a product or service includes. Products and
-                services may be updated, changed or removed from
-                the store.
+                Product descriptions are provided to explain
+                the products and services currently offered.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                3. Payments
-            </h3>
-
+        <div class="legal-card">
+            <h3>3. Payments</h3>
             <p>
-                Payments are processed through the payment provider
-                used by Kryton Store. The payment provider may have
-                its own terms, conditions and privacy policy.
+                Payments will be processed through the payment
+                provider connected to the store.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                4. Orders
-            </h3>
-
+        <div class="legal-card">
+            <h3>4. Orders</h3>
             <p>
-                Customers are responsible for providing accurate
-                information required to complete an order or
-                deliver a service.
+                Customers are responsible for providing
+                accurate information needed to complete an order.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                5. Digital Products
-            </h3>
-
+        <div class="legal-card">
+            <h3>5. Digital Products</h3>
             <p>
-                Unless explicitly permitted by the product's
-                licence or description, purchased digital products
-                must not be redistributed, resold or shared
-                publicly.
+                Digital products may not be redistributed or
+                resold unless the relevant product licence
+                specifically permits it.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                6. Refunds
-            </h3>
-
+        <div class="legal-card">
+            <h3>6. Refunds</h3>
             <p>
-                Refund requests will be handled according to the
-                applicable refund policy and applicable consumer
-                protection law.
+                Refund requests are considered according to
+                the applicable refund policy and consumer law.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                7. Support
-            </h3>
-
+        <div class="legal-card">
+            <h3>7. Support</h3>
             <p>
-                Customers should provide accurate order information
-                when requesting support. This may include their
-                name, email address, order number and product
-                information.
+                Support requests should contain accurate
+                information about the customer's order and issue.
             </p>
-
         </div>
 
-
-        <div class="legal-card reveal">
-
-            <h3>
-                8. Changes to These Terms
-            </h3>
-
+        <div class="legal-card">
+            <h3>8. Changes</h3>
             <p>
-                These terms may be updated as Kryton Store develops.
-                The latest version should be displayed on this page.
+                Store products, prices and these terms may
+                be updated as the website develops.
             </p>
-
         </div>
 
     </div>
 
 </section>
 
+<section class="section dark" id="privacy">
 
-<!-- =========================
-     PRIVACY
-========================== -->
-
-<section class="section" id="privacy">
-
-    <div class="section-heading reveal">
+    <div class="section-title">
 
         <h2>Privacy</h2>
 
         <p>
-            Information about customer information and support
-            requests.
+            Information about customer information.
         </p>
 
     </div>
 
+    <div class="legal-card" style="max-width:900px;margin:auto;">
 
-    <div
-        class="legal-card reveal"
-        style="max-width:900px;margin:auto;">
-
-        <h3>
-            Privacy Notice
-        </h3>
+        <h3>Privacy Notice</h3>
 
         <p>
-            Kryton Store should only collect information that is
-            reasonably necessary to provide products, services,
-            orders and customer support.
+            The support system may require information such
+            as your name, email address, order number, product
+            purchased and details of your issue.
         </p>
 
         <br>
 
         <p>
-            The support form may collect your name, email address,
-            order number, purchased product, purchase date,
-            support category and message so that your request can
-            be handled.
+            This information should only be used for purposes
+            such as responding to support requests and
+            managing customer orders.
         </p>
 
         <br>
 
         <p>
-            Do not submit passwords, full payment card numbers,
-            security codes or other sensitive payment credentials
-            through the support form.
+            Never submit passwords, complete payment card
+            numbers or security codes through the support form.
         </p>
 
         <br>
 
         <p>
-            Before launching the store publicly, this placeholder
-            should be replaced with a complete privacy policy that
-            accurately describes your actual data processing,
-            retention and customer rights.
+            Before using this store commercially, make sure
+            the final privacy notice accurately reflects how
+            customer information is actually collected,
+            processed and stored.
         </p>
 
     </div>
 
 </section>
-
-
-<!-- =========================
-     FOOTER
-========================== -->
 
 <footer>
 
     <div class="footer-grid">
 
-        <div class="footer-brand">
-
+        <div>
             <div class="logo">
                 Kryton<span>Store</span>
             </div>
 
-            <p>
-                Gaming, Discord and creator products in one
-                simple online store.
+            <p style="margin-top:12px;">
+                Gaming, Discord and creator products
+                in one simple store.
             </p>
+        </div>
+
+        <div>
+
+            <h4>Store</h4>
+
+            <a href="#shop">Shop</a>
+            <a href="#shop">Products</a>
+            <a href="#support">Support</a>
 
         </div>
 
+        <div>
 
-        <div class="footer-column">
+            <h4>Information</h4>
 
-            <h4>
-                Store
-            </h4>
-
-            <a href="#shop">
-                Shop
-            </a>
-
-            <a href="#shop">
-                Products
-            </a>
-
-            <a href="#support">
-                Support
-            </a>
+            <a href="#faq">FAQ</a>
+            <a href="#terms">Terms</a>
+            <a href="#privacy">Privacy</a>
 
         </div>
 
+        <div>
 
-        <div class="footer-column">
+            <h4>Help</h4>
 
-            <h4>
-                Information
-            </h4>
-
-            <a href="#faq">
-                FAQ
-            </a>
-
-            <a href="#terms">
-                Terms of Service
-            </a>
-
-            <a href="#privacy">
-                Privacy
-            </a>
-
-        </div>
-
-
-        <div class="footer-column">
-
-            <h4>
-                Help
-            </h4>
-
-            <a href="#support">
-                Contact Support
-            </a>
-
-            <a href="#faq">
-                Frequently Asked Questions
-            </a>
+            <a href="#support">Contact Support</a>
+            <a href="#faq">FAQ</a>
 
         </div>
 
     </div>
 
-
     <div class="footer-bottom">
-
-        <span>
-            © 2026 Kryton Store. All rights reserved.
-        </span>
-
-        <span>
-            Built for gamers & creators.
-        </span>
-
+        © 2026 Kryton Store. All rights reserved.
     </div>
 
 </footer>
 
-
-<!-- =========================
-     JAVASCRIPT
-========================== -->
-
 <script>
 
-    /*
-     * PRIVATE SUPPORT EMAIL
-     *
-     * Paste your private support email address between
-     * the quotation marks below.
-     *
-     * It is intentionally not written here.
-     */
+/* PRODUCT SEARCH */
 
-    const SUPPORT_EMAIL = "PASTE-YOUR-PRIVATE-SUPPORT-EMAIL-HERE";
+const search = document.getElementById("search");
+const products = document.querySelectorAll(".product");
+const noResults = document.getElementById("noResults");
+const categoryButtons = document.querySelectorAll(".category");
 
+let currentCategory = "all";
 
-    /* =========================
-       SCROLL REVEAL
-    ========================== */
+function updateProducts() {
 
-    const revealElements =
-        document.querySelectorAll(".reveal");
+    const searchText =
+        search.value.toLowerCase().trim();
 
+    let visible = 0;
 
-    const revealObserver =
-        new IntersectionObserver(
-            (entries) => {
+    products.forEach(product => {
 
-                entries.forEach((entry) => {
+        const category =
+            product.dataset.category;
 
-                    if (entry.isIntersecting) {
+        const text =
+            product.innerText.toLowerCase();
 
-                        entry.target.classList.add("visible");
+        const categoryMatch =
+            currentCategory === "all" ||
+            category === currentCategory;
 
-                        revealObserver.unobserve(
-                            entry.target
-                        );
+        const searchMatch =
+            text.includes(searchText);
 
-                    }
+        if (categoryMatch && searchMatch) {
 
-                });
+            product.style.display = "";
 
-            },
-            {
-                threshold: 0.12
-            }
-        );
+            visible++;
 
+        } else {
 
-    revealElements.forEach((element) => {
+            product.style.display = "none";
 
-        revealObserver.observe(element);
+        }
 
     });
 
+    noResults.style.display =
+        visible === 0 ? "block" : "none";
+}
 
-    /* =========================
-       PRODUCT FILTER
-    ========================== */
+search.addEventListener("input", updateProducts);
 
-    function filterProducts(category, button) {
+categoryButtons.forEach(button => {
 
-        const products =
-            document.querySelectorAll(".product");
+    button.addEventListener("click", () => {
 
-        const buttons =
-            document.querySelectorAll(".category");
-
-        const noProducts =
-            document.getElementById("noProducts");
-
-
-        buttons.forEach((item) => {
-
+        categoryButtons.forEach(item => {
             item.classList.remove("active");
-
         });
-
 
         button.classList.add("active");
 
+        currentCategory =
+            button.dataset.category;
 
-        let visibleProducts = 0;
+        updateProducts();
 
+    });
 
-        products.forEach((product) => {
-
-            const productCategory =
-                product.dataset.category;
-
-
-            if (
-                category === "all" ||
-                productCategory === category
-            ) {
-
-                product.style.display = "";
-
-                visibleProducts++;
-
-            } else {
-
-                product.style.display = "none";
-
-            }
-
-        });
+});
 
 
-        noProducts.style.display =
-            visibleProducts === 0
-                ? "block"
-                : "none";
+/* BUY BUTTONS */
 
+document.querySelectorAll(".buy").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        const product =
+            button.dataset.product;
+
+        const price =
+            button.dataset.price;
+
+        alert(
+            product +
+            " - " +
+            price +
+            "\n\nCheckout will be connected here."
+        );
+
+    });
+
+});
+
+
+/* SUPPORT FORM */
+
+document
+.getElementById("supportForm")
+.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+    /*
+       ADD YOUR PRIVATE SUPPORT EMAIL HERE.
+       Example:
+
+       const supportEmail =
+       "your@email.com";
+    */
+
+    const supportEmail =
+        "PASTE-YOUR-PRIVATE-SUPPORT-EMAIL-HERE";
+
+    if (
+        supportEmail ===
+        "PASTE-YOUR-PRIVATE-SUPPORT-EMAIL-HERE"
+    ) {
+
+        alert(
+            "Support email has not been configured yet."
+        );
+
+        return;
     }
 
+    const name =
+        document.getElementById("name").value.trim();
 
-    /* =========================
-       PRODUCT SEARCH
-    ========================== */
+    const email =
+        document.getElementById("email").value.trim();
 
-    const searchInput =
-        document.getElementById("productSearch");
+    const order =
+        document.getElementById("order").value.trim();
+
+    const product =
+        document.getElementById("product").value.trim();
+
+    const reason =
+        document.getElementById("reason").value;
+
+    const message =
+        document.getElementById("message").value.trim();
+
+    const subject =
+        "Kryton Store Support - " + reason;
+
+    const body =
+`KRYTON STORE SUPPORT REQUEST
+
+CUSTOMER DETAILS
+----------------
+Name: ${name}
+Customer Email: ${email}
+
+PURCHASE DETAILS
+----------------
+Order Number: ${order || "Not provided"}
+Product Purchased: ${product || "Not provided"}
+
+ISSUE
+----------------
+${reason}
+
+CUSTOMER MESSAGE
+----------------
+${message}
+
+----------------
+Kryton Store Support
+`;
+
+    const mailto =
+        "mailto:" +
+        supportEmail +
+        "?subject=" +
+        encodeURIComponent(subject) +
+        "&body=" +
+        encodeURIComponent(body);
+
+    window.location.href = mailto;
+
+});
 
 
-    searchInput.addEventListener(
-        "input",
-        function () {
+/* SCROLL ANIMATIONS */
 
-            const search =
-                this.value.toLowerCase().trim();
+const fadeElements =
+    document.querySelectorAll(".fade");
 
-            const products =
-                document.querySelectorAll(".product");
+const observer =
+    new IntersectionObserver(
+        entries => {
 
-            const noProducts =
-                document.getElementById("noProducts");
+            entries.forEach(entry => {
 
-            let visibleProducts = 0;
+                if (entry.isIntersecting) {
 
+                    entry.target.classList.add("show");
 
-            products.forEach((product) => {
-
-                const text =
-                    product.innerText.toLowerCase();
-
-
-                if (text.includes(search)) {
-
-                    product.style.display = "";
-
-                    visibleProducts++;
-
-                } else {
-
-                    product.style.display = "none";
+                    observer.unobserve(
+                        entry.target
+                    );
 
                 }
 
             });
 
-
-            noProducts.style.display =
-                visibleProducts === 0
-                    ? "block"
-                    : "none";
-
+        },
+        {
+            threshold: 0.1
         }
     );
 
-
-    /* =========================
-       PAYMENT PLACEHOLDER
-    ========================== */
-
-    function paymentComingSoon(event) {
-
-        event.preventDefault();
-
-        alert(
-            "Checkout is being set up. Payment will be available soon!"
-        );
-
-    }
-
-
-    /* =========================
-       SUPPORT FORM
-    ========================== */
-
-    const supportForm =
-        document.getElementById("supportForm");
-
-
-    supportForm.addEventListener(
-        "submit",
-        function (event) {
-
-            event.preventDefault();
-
-
-            if (
-                SUPPORT_EMAIL ===
-                "williamwinterwoodlands@outlook.com"
-            ) {
-
-                alert(
-                    "The store support email has not been configured yet."
-                );
-
-                return;
-
-            }
-
-
-            const name =
-                document
-                    .getElementById("supportName")
-                    .value
-                    .trim();
-
-
-            const customerEmail =
-                document
-                    .getElementById("supportEmail")
-                    .value
-                    .trim();
-
-
-            const orderNumber =
-                document
-                    .getElementById("orderNumber")
-                    .value
-                    .trim();
-
-
-            const product =
-                document
-                    .getElementById("productName")
-                    .value
-                    .trim();
-
-
-            const purchaseDate =
-                document
-                    .getElementById("purchaseDate")
-                    .value
-                    .trim();
-
-
-            const reason =
-                document
-                    .getElementById("supportReason")
-                    .value;
-
-
-            const message =
-                document
-                    .getElementById("supportMessage")
-                    .value
-                    .trim();
-
-
-            const subject =
-                "Kryton Store Support - " +
-                reason;
-
-
-            const emailBody =
-```
-
-`KRYTON STORE SUPPORT REQUEST
-
-## CUSTOMER DETAILS
-
-Name: ${name}
-Customer Email: ${customerEmail}
-
-## PURCHASE DETAILS
-
-Order Number: ${orderNumber || "Not provided"}
-Product Purchased: ${product || "Not provided"}
-Purchase Date: ${purchaseDate || "Not provided"}
-
-## SUPPORT CATEGORY
-
-${reason}
-
-## CUSTOMER MESSAGE
-
-${message}
-
----
-
-Kryton Store Support
-`;
-
-```
-            const mailto =
-                "mailto:" +
-                SUPPORT_EMAIL +
-                "?subject=" +
-                encodeURIComponent(subject) +
-                "&body=" +
-                encodeURIComponent(emailBody);
-
-
-            window.location.href = mailto;
-
-        }
-    );
+fadeElements.forEach(element => {
+    observer.observe(element);
+});
 
 </script>
-```
 
 </body>
 </html>
